@@ -8,8 +8,8 @@
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
         }
-
-        public DbSet<CompetencyRating> CompetencyRatings { get; set; }
-        public DbSet<Interview> Interviews { get; set; }
+        
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderDetails> OrderDetails { get; set; }
     }
 }

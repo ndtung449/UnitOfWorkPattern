@@ -8,26 +8,29 @@
     public class UnitOfWork : IUnitOfWork
     {
         private ApplicationContext _context;
-        private IGenericRepository<CompetencyRating> _competencyRatingRepository;
-        private IGenericRepository<Interview> _interviewRepository;
 
         public UnitOfWork(ApplicationContext context)
         {
             _context = context;
+            InitRepositories();
         }
-
-        public IGenericRepository<CompetencyRating> CompetencyRatingRepository => _competencyRatingRepository ??
-            (_competencyRatingRepository = new GenericRepository<CompetencyRating>(_context));
-
-        public IGenericRepository<Interview> InterviewRepository => _interviewRepository ??
-            (_interviewRepository = new GenericRepository<Interview>(_context));
-
+        
         public async Task SaveAsync()
         {
             await _context.SaveChangesAsync();
         }
 
         private bool _disposed = false;
+
+        public IGenericRepository<Order> OrderRepository { get; private set; }
+
+        public IGenericRepository<OrderDetails> OrderDetailsRepository { get; private set; }
+
+        private void InitRepositories()
+        {
+            OrderRepository = new GenericRepository<Order>(_context);
+            OrderDetailsRepository = new GenericRepository<OrderDetails>(_context);
+        }
 
         protected virtual void Dispose(bool disposing)
         {

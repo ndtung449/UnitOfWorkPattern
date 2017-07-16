@@ -7,8 +7,8 @@
 
     public interface IUnitOfWork : IDisposable
     {
-        IGenericRepository<CompetencyRating> CompetencyRatingRepository { get; }
-        IGenericRepository<Interview> InterviewRepository { get; }
+        IGenericRepository<Order> OrderRepository { get; }
+        IGenericRepository<OrderDetails> OrderDetailsRepository { get; }
         Task SaveAsync();
     }
 }

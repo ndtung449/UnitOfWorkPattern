@@ -36,8 +36,8 @@
             // Add framework services.
             services.AddMvc();
 
-            services.AddScoped<ICompetencyRatingService, CompetencyRatingService>();
-            services.AddScoped<IInterviewService, InterviewService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IOrderDetailsService, OrderDetailsService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 

@@ -9,16 +9,16 @@
         public DtoEntityCommonMapper()
         {
             #region Enity To Dto
-
-            CreateMap<CompetencyRating, CompetencyRatingDto>();
-            CreateMap<Interview, InterviewDto>();
+            
+            CreateMap<Order, OrderDto>();
+            CreateMap<OrderDetails, OrderDetailsDto>();
 
             #endregion
 
             #region Dto to Entity
-
-            CreateMap<CompetencyRatingDto, CompetencyRating>();
-            CreateMap<InterviewDto, Interview>();
+            
+            CreateMap<OrderDto, Order>();
+            CreateMap<OrderDetailsDto, OrderDetails>();
 
             #endregion
         }
